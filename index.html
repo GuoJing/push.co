@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Push.co by GuoJing</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Push.co</h1>
+        <p>Python lib for push.co</p>
+
+        <p class="view"><a href="https://github.com/GuoJing/push.co">View the Project on GitHub <small>GuoJing/push.co</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/GuoJing/push.co/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/GuoJing/push.co/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/GuoJing/push.co">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="pushco" class="anchor" href="#pushco"><span class="octicon octicon-link"></span></a>push.co</h1>
+
+<p>Python lib for push.co, this is very simple and support all API of push.co, just see demo.py!</p>
+
+<p><strong>Simple for authorize</strong></p>
+
+<pre><code>def auth():
+    from pushcoapi.authorize import Authorize
+
+    auth = Authorize(api_key, api_secret, redirect_url)
+
+    url = auth.get_auth_url()
+    print '1. Go to link below'
+    print '2. Click Allow'
+    print '3. Copy the authorization code.'
+    print url
+    code = raw_input("Enter the authorization code here: ").strip()
+
+    data = auth.get_access_token(code)
+
+    print data
+
+    access_token = data.get('access_token')
+
+    data = auth.check_access_token(access_token)
+
+    print data
+
+    #data = auth.delete_access_token(access_token)
+
+    #print data
+    return access_token
+</code></pre>
+
+<p><strong>Simple for subscription</strong></p>
+
+<pre><code>def subscription(access_token):
+    from pushcoapi.subscription import Subscription
+    s = Subscription(access_token)
+    print s.gets()
+</code></pre>
+
+<p><strong>Simple for push!</strong></p>
+
+<pre><code>def push():
+    from pushcoapi.push import Push
+    p = Push(api_key, api_secret)
+    ret = p.push_message('Hello, this is a message from demo')
+    print ret
+
+    ret = p.push_web('Hello, this is a web', 'http://guojing.me')
+    print ret
+
+    ret = p.push_map('Hello, this is a map', '39.9026266648', '116.4012871818')
+    print ret
+</code></pre>
+
+<p><strong>Install</strong></p>
+
+<pre><code>pip install pushcoapi
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/GuoJing">GuoJing</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
