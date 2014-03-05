@@ -1,7 +1,20 @@
-push.co
+push.co / pushcoapi
 =======
 
-Python lib for push.co, this is very simple and support all API of push.co, just see demo.py!
+Python lib for push.co, called `pushcoapi`, this is very simple and support all API of push.co, just see demo.py!
+
+Easy interface for you:
+
+1. push_message
+2. push_web
+3. push_map
+
+**APP**
+
+Try push.co app:
+
+
+![pushcoapi](http://guojing.me/images/2014/push.co.png)
 
 **Simple for authorize**
 
