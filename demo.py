@@ -38,7 +38,7 @@ def auth():
 
     #data = auth.delete_access_token(access_token)
 
-    #print data
+    #print(data)
     return access_token
 
 
