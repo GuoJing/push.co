@@ -30,7 +30,7 @@ Try push.co app:
         print('2. Click Allow')
         print('3. Copy the authorization code.')
         print(url)
-        code = raw_input("Enter the authorization code here: ").strip()
+        code = input("Enter the authorization code here: ").strip()
 
         data = auth.get_access_token(code)
 
