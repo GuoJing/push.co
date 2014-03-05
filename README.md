@@ -18,6 +18,8 @@ Try push.co app:
 
 ![pushcoapi](http://guojing.me/images/2014/push.co.png)
 
+Join us on [Push.co](http://push.co/a/0Pn0FOk6FqjQ).
+
 **Simple for authorize**
 
     def auth():
