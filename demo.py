@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+'''
+This is a simple demo how to use this lib
+'''
+
 api_key = ''
 api_secret = ''
 redirect_url = 'http://localhost:4000'
