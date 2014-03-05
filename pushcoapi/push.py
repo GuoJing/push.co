@@ -52,13 +52,15 @@ class Push(object):
         Push a simple message
         required: message
         '''
-        view_type = 0
-        data = dict(message=message,
-                    view_type=view_type,
-                    notification_type=notification_type,
-                    article=article,
-                    image=image)
-        return self._push_request(data)
+        data = dict(message=message)
+        if article:
+            data['article'] = article
+        if image:
+            data['image'] = image
+        # note here:
+        # if you pass view_type = 0, it will send success
+        # BUT no push notification, maybe push.co bug
+        return self._push_request(data, notification_type)
 
     def push_web(self, message, url,
                  notification_type=''):
@@ -66,12 +68,10 @@ class Push(object):
         Push a web message
         required: message, url
         '''
-        view_type = 1
         data = dict(message=message,
-                    view_type=view_type,
-                    notification_type=notification_type,
-                    url=url)
-        return self._push_request(data)
+                    url=url,
+                    view_type=1)
+        return self._push_request(data, notification_type)
 
     def push_map(self, message, latitude, longitude,
                  notification_type=''):
@@ -79,16 +79,16 @@ class Push(object):
         Push a map message
         required: message, latitude, longitude
         '''
-        view_type = 2
         data = dict(message=message,
-                    view_type=view_type,
-                    notification_type=notification_type,
                     latitude=latitude,
-                    longitude=longitude)
-        return self._push_request(data)
+                    longitude=longitude,
+                    view_type=2)
+        return self._push_request(data, notification_type)
 
-    def _push_request(self, data):
+    def _push_request(self, data, notification_type=''):
         data['api_key'] = self.api_key
         data['api_secret'] = self.api_secret
+        if notification_type:
+            data['notification_type'] = notification_type
         data = requests.post(PUSH_URL, data)
         return data.json()
