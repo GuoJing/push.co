@@ -1,0 +1,20 @@
+# http://travis-ci.org/#!/GuoJing/push.co
+language: python
+python:
+    - 2.6
+    - 2.7
+    - pypy
+    - 3.2
+    - 3.3
+
+install:
+    - python setup.py install
+    - pip install requests
+    - pip install pylint
+    - pip install --use-mirrors coveralls
+
+script:
+    - pylint -E pushcoapi |tee pylint.out
+
+after_success:
+    coveralls
