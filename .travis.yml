@@ -14,7 +14,7 @@ install:
     - pip install --use-mirrors coveralls
 
 script:
-    - pylint -E pushcoapi |tee pylint.out
+    - pylint -E pushcoapi
 
 after_success:
     coveralls
