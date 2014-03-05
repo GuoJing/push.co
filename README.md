@@ -1,6 +1,8 @@
 push.co / pushcoapi
 =======
 
+[![Build Status](https://travis-ci.org/GuoJing/push.co.png?branch=master)](https://travis-ci.org/GuoJing/push.co)
+
 Python lib for push.co, called `pushcoapi`, this is very simple and support all API of push.co, just see demo.py!
 
 Easy interface for you:
