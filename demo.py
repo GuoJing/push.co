@@ -15,21 +15,21 @@ def auth():
     auth = Authorize(api_key, api_secret, redirect_url)
 
     url = auth.get_auth_url()
-    print '1. Go to link below'
-    print '2. Click Allow'
-    print '3. Copy the authorization code.'
-    print url
+    print('1. Go to link below')
+    print('2. Click Allow')
+    print('3. Copy the authorization code.')
+    print(url)
     code = raw_input("Enter the authorization code here: ").strip()
 
     data = auth.get_access_token(code)
 
-    print data
+    print(data)
 
     access_token = data.get('access_token')
 
     data = auth.check_access_token(access_token)
 
-    print data
+    print(data)
 
     #data = auth.delete_access_token(access_token)
 
@@ -40,20 +40,20 @@ def auth():
 def subscription(access_token):
     from pushcoapi.subscription import Subscription
     s = Subscription(access_token)
-    print s.gets()
+    print(s.gets())
 
 
 def push():
     from pushcoapi.push import Push
     p = Push(api_key, api_secret)
     ret = p.push_message('Hello, this is a message from demo')
-    print ret
+    print(ret)
 
     ret = p.push_web('Hello, this is a web', 'http://guojing.me')
-    print ret
+    print(ret)
 
     ret = p.push_map('Hello, this is a map', '39.9026266648', '116.4012871818')
-    print ret
+    print(ret)
 
 if __name__ == '__main__':
     push()
