@@ -1,7 +1,7 @@
 push.co / pushcoapi
 =======
 
-[![Build Status](https://travis-ci.org/GuoJing/push.co.png?branch=master)](https://travis-ci.org/GuoJing/push.co)
+[![Build Status](https://travis-ci.org/GuoJing/push.co.png?branch=master)](https://travis-ci.org/GuoJing/push.co) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GuoJing/push.co/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Python lib for push.co, called `pushcoapi`, this is very simple and support all API of push.co, just see demo.py!
 
