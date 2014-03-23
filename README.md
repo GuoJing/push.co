@@ -73,3 +73,8 @@ Join us on [Push.co](http://push.co/a/0Pn0FOk6FqjQ).
 **Install**
 
     pip install pushcoapi
+
+
+**Problem**
+
+    Not suppot Chinese now. 
